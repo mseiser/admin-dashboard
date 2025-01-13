@@ -7,13 +7,11 @@ import {
 import ReminderForm from '@/components/ui/reminders/reminder-form';
 import { ReminderService } from 'services/ReminderService';
 
-type Params = {
-    params: {
-      id: string;
-    };
-};
+type Params = Promise<{
+      id: string
+}>;
 
-export default async function RemindersEditPage({ params }: Params) {
+export default async function RemindersEditPage({ params }: {params: Params}) {
     const reminderEditParams = await params;
     const reminderId = reminderEditParams.id;
 
